@@ -1,4 +1,4 @@
- !DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="">
   <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
   <link rel="stylesheet" href="Assets/CSS/style.css">
+  <!--SweetAlet-->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  
+  <!--FontAwesome-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -27,12 +31,35 @@
     </ul> <!--Fin de Nav Bar-->
     
     
-  <form class="col-12">
-    <div class="form-group">
-         <input type="password" class="form-control" placeholder="PIN" maxlength="4">
-    </div>
-            <button type="submit" class="btn"><a href="index.html"></a><i class="fas fa-sign-in-alt"></i> Ingresar</button>
-  </form>
+ <section id="formularios">
+     <div class="container">
+      <div class="row content">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Deposito</h1>
+            <form name="formulario">
+                
+                <div class="form-goup">
+                    <p>Cantidad a depositar</p>
+                    <input type="number" class="form-control" id="descripcion" placeholder="$" required>
+                    <span class="errordescrip" id="errordescrip"></span>
+                </div>
+                <div class="form-goup">
+                    <p>Cantidad a ingresar en el cajero</p>
+                    <input type="number" class="form-control" id="monto" placeholder="$" required>
+                    <span class="errormonto" id="errormonto"></span>
+                </div>
+            </form>
+            <a href="#" class=""><button type="submit" value="agregar" name="agregar" class="btn btn-dark" id="btndepo"><i class="fas fa-dollar-sign"></i> Depositar</button></a>
+            
+         </div>
+         
+        </div>
+        
+
+      
+      </div>
+
+</section>
   
     <script src=""></script>
 </body>

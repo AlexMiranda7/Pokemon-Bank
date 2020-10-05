@@ -62,27 +62,33 @@ button{
     color: gold;
 }
 
-/*A partir de aqui son reglas pasadas, solo para basarse*/
-
-.form-group{
-    margin-bottom: 25px;
+#btndepo{
+    margin-top: 40px;
+    width: 40%!important;
+    height: auto!important;
+    color: black;
+    
 }
 
-.form-group input{
-    height: 42PX;
-    border-radius: 5px;
-    border: 0;
-    font-size: 18px;
-    padding-left: 54px;
+#btndepo:hover, #btndepo:focus{
+    color: white;
 }
 
-.form-group::before{
-    font-family: 'Font Awesome\ 5 Free';
-    content: "\f044";
-    position: absolute;
-    font-size: 22px;
-    color: #555e60;
-    left: 28px;
-    padding-top: 4px;
+/*PARA CENTRAR LOS FORMULARIOS*/
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.row form{
+    font-size: 20px;
+}
+
+.row h1{
+    font-size: 50px;
+    text-decoration: underline solid gold;
+}
+
+
 
