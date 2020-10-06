@@ -4,8 +4,7 @@
 
 body{
     font-family: 'Quicksand', sans-serif;
-    /*background: url(/Assets/IMG/galaxia.jpg) no-repeat center center fixed;*/
-    background-color: black;
+    background: url(/Assets/IMG/pikachu%201.gif) no-repeat fixed;
     background-size: cover;
 }
 
