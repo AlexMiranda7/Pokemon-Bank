@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Quicksand&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@700&display=swap');
 
 body{
     font-family: 'Quicksand', sans-serif;
@@ -57,22 +57,35 @@ button{
     background-color: black!important;
     border-color: #FFE700;
     border-right: 2px solid gold!important;
-    border-bottom: 2px solid gold!important;
+    border-bottom: 2px solid+
+        gold!important;
     color: gold;
 }
 
-#btndepo{
+#btnopc{
     margin-top: 40px;
-    width: 40%!important;
+    width: 45%!important;
     height: auto!important;
     color: black;
     
 }
 
-#btndepo:hover, #btndepo:focus{
+#btnopc:hover, #btnatras:focus{
     color: white;
 }
 
+#btnatras{
+    color: black;
+    width: 15%!important;
+    height: 45px;
+    font-size: 20px;
+    float: right;
+    margin-right: 150px; margin-top: 125px;
+}
+
+#btnatras:hover, #btnatras:focus{
+    color: white;
+}
 /*PARA CENTRAR LOS FORMULARIOS*/
 .row{
     display: flex;
@@ -86,7 +99,11 @@ button{
 
 .row h1{
     font-size: 50px;
-    text-decoration: underline solid gold;
+    font-family: 'Barlow', sans-serif;
+}
+
+.row p{
+    margin-top: 10px;
 }
 
 
