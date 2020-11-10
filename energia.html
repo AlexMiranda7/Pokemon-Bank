@@ -22,10 +22,10 @@
      <!--Nav donde ira la información del usuario-->
     <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active" id="afiliado">Bienvenido, Rodrigo Miranda<!--Aqui ira el mensaje de bienvenida--></a>
+    <a class="nav-link active" id="afiliado">Bienvenido, Ash Ketchum<!--Aqui ira el mensaje de bienvenida--></a>
   </li>
   <li class="nav-item">
-      <a class="nav-link active" id="cuenta">Cuenta numero: 001122334455<!--Aqui ira el # de cuenta--></a>
+      <a class="nav-link active" id="cuenta">Poke-Cuenta numero: 0987654321<!--Aqui ira el # de cuenta--></a>
   </li>
   <li class="nav-item" >
       <a class="nav-link active" href="#" id="cuenta"><i class="fas fa-history"></i> Historial<!--boton para el historial--></a>
@@ -45,12 +45,12 @@
                 
                 <div class="form-goup">
                     <p>Número de Identificación de Contrato (NIC)</p>
-                    <input type="number" class="form-control" id="NPE" placeholder="NIC" required>
+                    <input type="number" class="form-control" id="NIC" placeholder="NIC" required>
                     <span class="errornic" id="errornic"></span>
                 </div>
                 <div class="form-goup">
                     <p>Monto total de factura</p>
-                    <input type="number" class="form-control" id="monto" placeholder="$" required>
+                    <input type="number" class="form-control" id="monto_energia" placeholder="$" required>
                     <span class="errormonto" id="errormonto"></span>
                 </div>
                 <div class="form-goup">
@@ -60,7 +60,7 @@
                 </div>
                 
             </form>
-            <a href="#" class=""><button type="submit" value="pagarluz" name="pagarluz" class="btn btn-dark" id="btnopc"><i class="fas fa-dollar-sign"></i> Poke-Pagar</button></a>
+            <a href="#" class=""><button type="submit" value="pagarluz" name="pagarluz" class="btn btn-dark" id="btnopc" onclick="pagar_energia()"><i class="fas fa-dollar-sign"></i> Poke-Pagar</button></a>
             
          </div>
          
@@ -75,9 +75,7 @@
     <!--Boton atras-->
     <button type="button" value="atras" name="atras" class="btn btn-dark" id="btnatras" onclick="location.href='servicios.html'"><i class="fas fa-arrow-circle-left"></i> Atras</button>
   
-    <script src="Assets/JS/depositar.js"></script>
-    <!--SweetAlet-->
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="Assets/JS/poke-script.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 </html>

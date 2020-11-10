@@ -40,16 +40,17 @@
      <div class="container">
       <div class="row content">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Deposito</h1>
+          <h1>Consulta de saldo</h1>
             <form name="formulario">
                 
                 <div class="form-goup">
-                    <p>Cantidad a depositar</p>
-                    <input type="number" class="form-control" id="cant_depo" placeholder="$" required>
+                    <p>Su saldo actual es de:</p>
+                    <input type="number" class="form-control" id="saldo" placeholder="$500.00" required disabled>
                     <span class="errordescrip" id="errordescrip"></span>
                 </div>
+                
+
             </form>
-            <a href="#" class=""><button type="submit" value="depositar" name="depositar" class="btn btn-dark" id="btnopc" onclick="depositar()"><i class="fas fa-dollar-sign"></i> Poke-Depositar</button></a>
             
          </div>
          
@@ -64,7 +65,7 @@
     <!--Boton atras-->
     <button type="button" value="atras" name="atras" class="btn btn-dark" id="btnatras" onclick="location.href='index.html'"><i class="fas fa-arrow-circle-left"></i> Atras</button>
   
-   <script src="Assets/JS/poke-script.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+     <script src="Assets/JS/poke-script.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 </html>

@@ -106,5 +106,11 @@ button{
     margin-top: 10px;
 }
 
+button.swal2-confirm.swal2-styled{
+    width: 60%;
+    height: 50%;
+    background-color: black;
+}
+
 
 
