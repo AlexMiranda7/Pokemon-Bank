@@ -19,16 +19,16 @@
 </head>
 
 <body>
-     <!--Nav donde ira la información del usuario-->
+      <!--Nav donde ira la información del usuario-->
     <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active" id="afiliado">Bienvenido, Ash Ketchum<!--Aqui ira el mensaje de bienvenida--></a>
+    <a class="nav-link active" id="afiliado"><!--Aqui ira el mensaje de bienvenida--></a>
   </li>
   <li class="nav-item">
-      <a class="nav-link active" id="cuenta">Poke-Cuenta numero: 0987654321<!--Aqui ira el # de cuenta--></a>
+      <a class="nav-link active" id="cuenta"><!--Aqui ira el # de cuenta--></a>
   </li>
   <li class="nav-item" >
-      <a class="nav-link active" href="#" id="cuenta"><i class="fas fa-history"></i> Historial<!--boton para el historial--></a>
+      <a class="nav-link active" href="#" id="cuenta" onclick="location.href='historial.html'"><i class="fas fa-history"></i> Historial<!--boton para el historial--></a>
   </li>
   <li class="nav-item" >
       <a class="nav-link active" href="#" id="cuenta" onclick="location.href='login.html'"><i class="fas fa-sign-out-alt"></i> Salir<!--boton para el historial--></a>
@@ -39,7 +39,7 @@
  <section id="formularios">
      <div class="container">
       <div class="row content">
-        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+        <div id="depo" class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1>Deposito</h1>
             <form name="formulario">
                 
@@ -49,7 +49,7 @@
                     <span class="errordescrip" id="errordescrip"></span>
                 </div>
             </form>
-            <a href="#" class=""><button type="submit" value="depositar" name="depositar" class="btn btn-dark" id="btnopc" onclick="depositar()"><i class="fas fa-dollar-sign"></i> Poke-Depositar</button></a>
+            <a href="#" class=""><button type="submit" value="depositar" class="depositar" class="btn btn-dark" id="btnopc" onclick="depositar()"><i class="fas fa-dollar-sign"></i> Poke-Depositar</button></a>
             
          </div>
          
@@ -65,6 +65,9 @@
     <button type="button" value="atras" name="atras" class="btn btn-dark" id="btnatras" onclick="location.href='index.html'"><i class="fas fa-arrow-circle-left"></i> Atras</button>
   
    <script src="Assets/JS/poke-script.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script><!--Sweet Alert 2-->
+    <script type="text/javascript" src="Assets/JS/jspdf.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
 </body>
 </html>
