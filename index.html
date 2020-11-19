@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="pokeBank">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,18 +11,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
+    <!--Angular JS-->
+    <script src=https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js></script>
+    
 
 
 </head>
 
-<body>
+<body ng-controller="pokeController as bank">
     <!--Nav donde ira la información del usuario-->
     <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active" id="afiliado"><!--Aqui ira el mensaje de bienvenida--></a>
+    <a class="nav-link active" id="afiliado">Bienvenido {{bank.persona.name}}<!--Aqui ira el mensaje de bienvenida--></a>
   </li>
   <li class="nav-item">
-      <a class="nav-link active" id="cuenta"><!--Aqui ira el # de cuenta--></a>
+      <a class="nav-link active" id="cuenta">Poke-Cuenta numero: {{bank.persona.cuenta}}<!--Aqui ira el # de cuenta--></a>
   </li>
   <li class="nav-item" >
       <a class="nav-link active" href="#" id="cuenta" onclick="location.href='historial.html'"><i class="fas fa-history"></i> Historial<!--boton para el historial--></a>
@@ -54,7 +57,7 @@
   <script src="Assets/JS/poke-script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="Assets/JS/SweetAlert.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </body>
 </html>

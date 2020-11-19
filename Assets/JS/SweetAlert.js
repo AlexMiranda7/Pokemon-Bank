@@ -1,5 +1,5 @@
 swal.fire({
-    title: 'Bienvenido '+ Usuario.nombre,
+    title: 'Bienvenido Ash Ketchum',
     icon: 'question',
     confirmButtonText: 'Poke-Gracias!',
     timer: 5000,

@@ -3,27 +3,43 @@ var date = new Date();
 var impresion = date + " SV";
 return impresion;
 }
+
+(function(){
+    var app = angular.module('pokeBank',[ ]);    
+    app.controller('pokeController',function(){
+        this.persona = usuario;
+    });
+    var usuario = {
+                   name: 'Ash Ketchum',
+                   cuenta: '0987654321',
+                   fondos: 500,
+                   historial:'...',
+                   }
+})();
+
 //Definiendo objeto de usuario
 //var Usuario = new Object();
 //Usuario.nombre = 'Ash Ketchum';
 //Usuario.cuenta = '0987654321';
 //Usuario.fondos = '500';
 //Usuario.historial = '';
-localStorage.setItem("Nombre", 'Ash Ketchum');
-localStorage.setItem("Cuenta",'0987654321');
-localStorage.setItem("Fondos",'500');
-localStorage.setItem("Historial",'');
-let NombreST = localStorage.getItem("Nombre");
-let CuentaST = localStorage.getItem("Cuenta");
 
-//Informacion en NAV
-var afiliado = document.getElementById('afiliado');
-afiliado.innerHTML = "Bienvenido "+ NombreST ;
-var cuenta = document.getElementById('cuenta');
-cuenta.innerHTML = "Poke-Cuenta numero: "+ CuentaST;
+//localStorage.setItem("Nombre", 'Ash Ketchum');
+//localStorage.setItem("Cuenta",'0987654321');
+//localStorage.setItem("Fondos",'500');
+//localStorage.setItem("Historial",'');
     
+//let NombreST = localStorage.getItem("Nombre");
+//let CuentaST = localStorage.getItem("Cuenta");
+
+ //Informacion en NAV
+//var afiliado = document.getElementById('afiliado');
+//afiliado.innerHTML = "Bienvenido "+ NombreST ;
+//var cuenta = document.getElementById('cuenta');
+//cuenta.innerHTML = "Poke-Cuenta numero: "+ CuentaST;
 // Mensaje de Saldo en cuenta
-function consulta() {
+
+//function consulta() {
     
     //$(document).ready( function(){
         //$('#depo').on('click','button.depositar', function(){
@@ -38,16 +54,15 @@ function consulta() {
       //      backdrop: 'true'
     //    })
     
-    $(document).ready(function(){
-       $('#btnopc').click(function(){
-            var saldo = localStorage.getItem("Fondos")
-            var fondohtml = document.getElementById('saldo');
-            fondohtml.innerHTML = "$" + saldo;
-       }); 
-    });
+  
+   // var saldo = localStorage.getItem("Fondos")
+   // var fondohtml = document.getElementById('saldo');
+   // fondohtml.innerHTML = "$" + saldo;
+   // alert(localStorage.getItem("Fondos"));
+
     
     
-}
+//}
 
 //Funcion para ingreso al sistema
 function login() {
@@ -88,6 +103,7 @@ img.src = 'Assets/IMG/pokebank.jpg';
 //Funcion en depositar.html
 var cant_depo = document.getElementById('cant_depo');
 var cant_ingresar = document.getElementById('cant_ingresar');
+
 function depositar(){
     if(cant_depo.value == ''){
        swal.fire({
@@ -101,17 +117,19 @@ function depositar(){
     else{
         var doc = new jsPDF();
         doc.addImage(img, 'JPG', 150, 10);
-        doc.text("Hola "+ NombreST,25,25);
-        doc.text("Has depositado $"+ cant_depo.value+ " a la Poke-Cuenta numero "+CuentaST,25,50);
+        doc.text("Hola ",25,25);
+        doc.text("Has depositado $"+ cant_depo.value+ " a la Poke-Cuenta numero ",25,50);
         doc.text(tiempo(),25,65);
         doc.save("PokeDeposito.pdf");
         
-        cant_depo.value = ""; //Limpia el input
+       
         
         //Aumentando fondos
-        var suma = parseFloat(localStorage.fondo) + parseFloat(cant_depo.value);
-        localStorage.fondo = suma;
-        alert(localStorage.fondo);
+        var suma = 0;
+        suma += parseFloat(persona.fondos) + parseFloat(cant_depo.value);
+        alert(suma);
+    
+        cant_depo.value = ""; //Limpia el input
     }
        
 }
