@@ -12,10 +12,45 @@ return impresion;
     var usuario = {
                    name: 'Ash Ketchum',
                    cuenta: '0987654321',
-                   fondos: 500,
+                   fondos: '500',
                    historial:'...',
                    }
+    
+    var cant_depositar = document.getElementById('cant_depo');
+    var cant_ingresar = document.getElementById('cant_ingresar');
+    
+    //FUNCION DEPOSITAR
+    window.depositar = function(){
+        if(cant_depositar.value == ''){
+       swal.fire({
+            title: '¡Poke-Atención!',
+            text: 'Nos has definido la cantidad a depositar',
+            icon: 'warning',
+            confirmButtonText: 'Intentar',
+            backdrop: 'true',
+       })
+    }
+    else{
+        var doc = new jsPDF();
+        doc.addImage(img, 'JPG', 150, 10);
+        doc.text("Hola " + usuario.name,25,25);
+        doc.text("Has depositado $"+ cant_depositar.value+ " a la Poke-Cuenta numero "+ usuario.cuenta,25,50);
+        doc.text(tiempo(),25,65);
+        doc.save("PokeDeposito.pdf");
+        
+       
+        
+        //Aumentando fondos
+        var suma = parseFloat(usuario.fondos) + parseFloat(cant_depo.value);
+        usuario.fondos = suma;
+        alert(usuario.fondos);
+    
+        cant_depositar.value = ""; //Limpia el input
+        }
+       
+    }
 })();
+
 
 //Definiendo objeto de usuario
 //var Usuario = new Object();
@@ -104,6 +139,7 @@ img.src = 'Assets/IMG/pokebank.jpg';
 var cant_depo = document.getElementById('cant_depo');
 var cant_ingresar = document.getElementById('cant_ingresar');
 
+/*
 function depositar(){
     if(cant_depo.value == ''){
        swal.fire({
@@ -117,8 +153,8 @@ function depositar(){
     else{
         var doc = new jsPDF();
         doc.addImage(img, 'JPG', 150, 10);
-        doc.text("Hola ",25,25);
-        doc.text("Has depositado $"+ cant_depo.value+ " a la Poke-Cuenta numero ",25,50);
+        doc.text("Hola " + nombre,25,25);
+        doc.text("Has depositado $"+ cant_depo.value+ " a la Poke-Cuenta numero "+ cuentaB,25,50);
         doc.text(tiempo(),25,65);
         doc.save("PokeDeposito.pdf");
         
@@ -133,6 +169,7 @@ function depositar(){
     }
        
 }
+*/
 
 //Funcion en retiro.html
 var cant_retiro = document.getElementById('cant_retiro');
