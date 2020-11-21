@@ -14,6 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <!--Angular JS-->
+
 <script src=https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js></script>
 
     
@@ -31,7 +32,7 @@
       <a class="nav-link active" id="cuenta">Poke-Cuenta numero: {{bank.persona.cuenta}}<!--Aqui ira el # de cuenta--></a>
   </li>
   <li class="nav-item">
-      <a class="nav-link active" id="cuenta">Saldo: {{bank.persona.fondos | currency}}<!--Aqui ira el # de cuenta--></a>
+      <a class="nav-link active" id="cuenta"><b>Saldo: {{bank.persona.fondos | currency}}</b><!--Aqui ira el # de cuenta--></a>
   </li>
   <li class="nav-item" >
       <a class="nav-link active" href="#" id="cuenta" onclick="location.href='historial.html'"><i class="fas fa-history"></i> Historial<!--boton para el historial--></a>
@@ -55,7 +56,7 @@
                     <span class="errordescrip" id="errordescrip"></span>
                 </div>
             </form>
-            <a href="#" class=""><button type="submit" value="depositar" class="depositar" class="btn btn-dark" id="btnopc" onclick="depositar()"><i class="fas fa-dollar-sign"></i> Poke-Depositar</button></a>
+            <a href="#" class=""><button type="submit" value="depositar" class="btn btn-dark" id="btnopc" ng-click="bank.depositar()"><i class="fas fa-dollar-sign"></i> Poke-Depositar</button></a>
             
          </div>
          
@@ -68,7 +69,7 @@
 </section>
     
     <!--Boton atras-->
-    <button type="button" value="atras" name="atras" class="btn btn-dark" id="btnatras" onclick="location.href='index.html'"><i class="fas fa-arrow-circle-left"></i> Atras</button>
+   <a href="index.html"><button type="button" value="atras" name="atras" class="btn btn-dark" id="btnatras" ><i class="fas fa-arrow-circle-left"></i> Atras</button></a>
   
   <script src="Assets/JS/poke-script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script><!--Sweet Alert 2-->

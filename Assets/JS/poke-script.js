@@ -8,6 +8,188 @@ return impresion;
     var app = angular.module('pokeBank',[ ]);    
     app.controller('pokeController',function(){
         this.persona = usuario;
+        this.cant_depo = document.getElementById('cant_depo');
+        this.cant_retiro = document.getElementById('cant_retiro');
+        this.NIC = document.getElementById('NIC');
+        this.monto_energia = document.getElementById('monto_energia');
+        this.NPE = document.getElementById("NPE");
+        this.monto_agua = document.getElementById('monto_agua');
+        this.telefono = document.getElementById('telefono');
+        this.monto_telefono = document.getElementById('monto_telefono');
+        
+        //FUNCION DEPOSITAR
+        this.depositar = function(){
+            if(cant_depo.value == ''){
+                swal.fire({
+                    title: '¡Poke-Atención!',
+                    text: 'Nos has definido la cantidad a depositar',
+                    icon: 'warning',
+                    confirmButtonText: 'Intentar',
+                    backdrop: 'true',
+                })
+            }
+            else{
+                var doc = new jsPDF();
+                doc.addImage(img, 'JPG', 150, 10);
+                doc.text("Hola " + usuario.name,25,25);
+                doc.text("Has depositado $"+ cant_depo.value+ " a la Poke-Cuenta numero "+ usuario.cuenta,25,50);
+                doc.text(tiempo(),25,65);
+                doc.save("PokeDeposito.pdf");
+        
+       
+        
+            //Aumentando fondos
+            usuario.fondos = parseFloat(usuario.fondos) + parseFloat(cant_depo.value);
+            alert(usuario.fondos);
+            cant_depo.value = ""; //Limpia el input
+            //document.location.href="index.html";
+            }
+        }
+        
+        //FUNCION RETIRAR
+        this.retirar = function(){
+            if(cant_retiro.value == ''){
+                swal.fire({
+                    title: '¡Poke-Atención!',
+                    text: 'No has definido la cantidad a retirar',
+                    icon: 'warning',
+                    confirmButtonText: 'Intentar',
+                    backdrop: 'true',
+                })
+            }
+            else{
+                var doc = new jsPDF();
+                doc.addImage(img, 'JPG', 150, 10);
+                doc.text("Hola "+ usuario.name,25,25);
+                doc.text("Has retirado $"+ cant_retiro.value+ " de la Poke-Cuenta numero "+usuario.cuenta,25,50);
+                doc.text(tiempo(),25,65);
+                doc.save("PokeRetiro.pdf");
+                
+                //Disminuyendo fondos
+                usuario.fondos = parseFloat(usuario.fondos) - parseFloat(cant_retiro.value);
+                alert(usuario.fondos);
+                cant_retiro.value = ""; //Limpia el input
+    }
+        }
+        
+        //FUNCION PAGO_ENERGIA
+        this.pagar_energia = function(){
+             if(NIC.value == ''){
+                swal.fire({
+                    title: '¡Poke-Atención!',
+                    text: 'No has definido el Numero de Identificación de Contrato NIC',
+                    icon: 'warning',
+                    confirmButtonText: 'Intentar',
+                    backdrop: 'true',
+                })
+            }
+            if(monto_energia.value == ''){
+                swal.fire({
+                    title: '¡Poke-Atención!',
+                    text: 'No has definido el monto total a pagar',
+                    icon: 'warning',
+                    confirmButtonText: 'Intentar',
+                    backdrop: 'true',
+                })
+            }
+            else{
+                var doc = new jsPDF();
+                doc.addImage(img, 'JPG', 150, 10);
+                doc.text("Hola "+ usuario.name,25,25);
+                doc.text("Has pagado la energia electrica que te brinda Pickachu,",25,50) 
+                doc.text("mediante el NIC "+ NIC.value+ " por un costo de $"+monto_energia.value,25,60);
+                doc.text(tiempo(),25,90);
+                doc.save("PokePago-Energia.pdf");
+        
+            //Disminuyendo fondos
+            usuario.fondos = parseFloat(usuario.fondos) - parseFloat(monto_energia.value);
+            alert(usuario.fondos);
+            //Limpieza de imputs
+            NIC.value='';
+            monto_energia.value='';
+        
+    }
+        }
+        
+        //FUNCION PAGAR_AGUA
+        this.pagar_agua = function(){
+            if(NPE.value == ''){
+                swal.fire({
+                    title: '¡Poke-Atención!',
+                    text: 'No has definido el NPE de la factura',
+                    icon: 'warning',
+                    confirmButtonText: 'Intentar',
+                    backdrop: 'true',
+                })
+            }
+            if(monto_agua.value == ''){
+                swal.fire({
+                    title: '¡Poke-Atención!',
+                    text: 'No has definido el monto total a pagar',
+                    icon: 'warning',
+                    confirmButtonText: 'Intentar',
+                    backdrop: 'true',
+                })
+            }
+            else{
+                var doc = new jsPDF();
+                doc.addImage(img, 'JPG', 150, 10);
+                doc.text("Hola "+ usuario.name,25,25);
+                doc.text("Has pagado la el agua que te brinda Squirtle,",25,50) 
+                doc.text("mediante el NPE "+ NPE.value+ " por un costo de $"+ monto_agua.value,25,60);
+                doc.text(tiempo(),25,90);
+                doc.save("PokePago-Agua.pdf");
+                
+                //Disminuyendo fondos
+                usuario.fondos = parseFloat(usuario.fondos) - parseFloat(monto_agua.value);
+                alert(usuario.fondos);
+                //Limpieza de imputs
+                NPE.value='';
+                monto_agua.value='';
+        
+                
+    }
+        }
+        
+        //FUNCION PAGAR_TELEFONIA
+        this.pagar_telefonia = function(){
+            if(telefono.value == ''){
+                swal.fire({
+                    title: '¡Poke-Atención!',
+                    text: 'No has definido el numero de telefono fijo',
+                    icon: 'warning',
+                    confirmButtonText: 'Intentar',
+                    backdrop: 'true',
+                })
+            }
+            if(monto_telefono.value == ''){
+                swal.fire({
+                    title: '¡Poke-Atención!',
+                    text: 'No has definido el monto total a pagar',
+                    icon: 'warning',
+                    confirmButtonText: 'Intentar',
+                    backdrop: 'true',
+                })
+            }
+            else{
+                var doc = new jsPDF();
+                doc.addImage(img, 'JPG', 150, 10);
+                doc.text("Hola "+ usuario.name,25,25);
+                doc.text("Has pagado el consumo de tu Pokédesk,",25,50) 
+                doc.text("mediante el Numero Telefonico "+ telefono.value+ " por un costo de $"+ monto_telefono.value,25,60);
+                doc.text(tiempo(),25,90);
+                doc.save("PokePago-Telefono.pdf");
+        
+                //Disminuyendo fondos
+                usuario.fondos = parseFloat(usuario.fondos) - parseFloat(monto_telefono.value);
+                alert(usuario.fondos);
+        
+                //Limpiando Inputs 
+                telefono.value='';
+                monto_telefono.value='';
+    }
+        }
+        
     });
     var usuario = {
                    name: 'Ash Ketchum',
@@ -16,39 +198,7 @@ return impresion;
                    historial:'...',
                    }
     
-    var cant_depositar = document.getElementById('cant_depo');
-    var cant_ingresar = document.getElementById('cant_ingresar');
     
-    //FUNCION DEPOSITAR
-    window.depositar = function(){
-        if(cant_depositar.value == ''){
-       swal.fire({
-            title: '¡Poke-Atención!',
-            text: 'Nos has definido la cantidad a depositar',
-            icon: 'warning',
-            confirmButtonText: 'Intentar',
-            backdrop: 'true',
-       })
-    }
-    else{
-        var doc = new jsPDF();
-        doc.addImage(img, 'JPG', 150, 10);
-        doc.text("Hola " + usuario.name,25,25);
-        doc.text("Has depositado $"+ cant_depositar.value+ " a la Poke-Cuenta numero "+ usuario.cuenta,25,50);
-        doc.text(tiempo(),25,65);
-        doc.save("PokeDeposito.pdf");
-        
-       
-        
-        //Aumentando fondos
-        var suma = parseFloat(usuario.fondos) + parseFloat(cant_depo.value);
-        usuario.fondos = suma;
-        alert(usuario.fondos);
-    
-        cant_depositar.value = ""; //Limpia el input
-        }
-       
-    }
 })();
 
 
@@ -134,176 +284,3 @@ function login() {
 //Funcion para campturar imagen
 var img = new Image();
 img.src = 'Assets/IMG/pokebank.jpg';
-
-//Funcion en depositar.html
-var cant_depo = document.getElementById('cant_depo');
-var cant_ingresar = document.getElementById('cant_ingresar');
-
-/*
-function depositar(){
-    if(cant_depo.value == ''){
-       swal.fire({
-            title: '¡Poke-Atención!',
-            text: 'Nos has definido la cantidad a depositar',
-            icon: 'warning',
-            confirmButtonText: 'Intentar',
-            backdrop: 'true',
-       })
-    }
-    else{
-        var doc = new jsPDF();
-        doc.addImage(img, 'JPG', 150, 10);
-        doc.text("Hola " + nombre,25,25);
-        doc.text("Has depositado $"+ cant_depo.value+ " a la Poke-Cuenta numero "+ cuentaB,25,50);
-        doc.text(tiempo(),25,65);
-        doc.save("PokeDeposito.pdf");
-        
-       
-        
-        //Aumentando fondos
-        var suma = 0;
-        suma += parseFloat(persona.fondos) + parseFloat(cant_depo.value);
-        alert(suma);
-    
-        cant_depo.value = ""; //Limpia el input
-    }
-       
-}
-*/
-
-//Funcion en retiro.html
-var cant_retiro = document.getElementById('cant_retiro');
-function retirar(){
-    if(cant_retiro.value == ''){
-       swal.fire({
-            title: '¡Poke-Atención!',
-            text: 'No has definido la cantidad a retirar',
-            icon: 'warning',
-            confirmButtonText: 'Intentar',
-            backdrop: 'true',
-       })
-    }
-    else{
-        var doc = new jsPDF();
-        doc.addImage(img, 'JPG', 150, 10);
-        doc.text("Hola "+ NombreST,25,25);
-        doc.text("Has retirado $"+ cant_retiro.value+ " de la Poke-Cuenta numero "+CuentaST,25,50);
-        doc.text(tiempo(),25,65);
-        doc.save("PokeRetiro.pdf");
-        
-        cant_retiro.value = ""; //Limpia el input
-    }
-}
-
-//Funcion en energia.html
-var NIC = document.getElementById('NIC');
-var monto_energia = document.getElementById('monto_energia');
-function pagar_energia(){
-    if(NIC.value == ''){
-       swal.fire({
-            title: '¡Poke-Atención!',
-            text: 'No has definido el Numero de Identificación de Contrato NIC',
-            icon: 'warning',
-            confirmButtonText: 'Intentar',
-            backdrop: 'true',
-       })
-    }
-    if(monto_energia.value == ''){
-        swal.fire({
-            title: '¡Poke-Atención!',
-            text: 'No has definido el monto total a pagar',
-            icon: 'warning',
-            confirmButtonText: 'Intentar',
-            backdrop: 'true',
-        })
-    }
-    else{
-        var doc = new jsPDF();
-        doc.addImage(img, 'JPG', 150, 10);
-        doc.text("Hola "+ NombreST,25,25);
-        doc.text("Has pagado la energia electrica que te brinda Pickachu,",25,50) 
-        doc.text("mediante el NIC "+ NIC.value+ " por un costo de $"+monto_energia.value,25,60);
-        doc.text(tiempo(),25,90);
-        doc.save("PokePago-Energia.pdf");
-        
-        //Limpieza de imputs
-        NIC.value='';
-        monto_energia.value='';
-        
-    }
-}
-
-
-//Funcion en agua.html
-var NPE = document.getElementById("NPE");
-var monto_agua = document.getElementById('monto_agua');
-function pagar_agua(){
-    if(NPE.value == ''){
-       swal.fire({
-            title: '¡Poke-Atención!',
-            text: 'No has definido el NPE de la factura',
-            icon: 'warning',
-            confirmButtonText: 'Intentar',
-            backdrop: 'true',
-       })
-    }
-    if(monto_agua.value == ''){
-        swal.fire({
-            title: '¡Poke-Atención!',
-            text: 'No has definido el monto total a pagar',
-            icon: 'warning',
-            confirmButtonText: 'Intentar',
-            backdrop: 'true',
-        })
-    }
-    else{
-        var doc = new jsPDF();
-        doc.addImage(img, 'JPG', 150, 10);
-        doc.text("Hola "+ NombreST,25,25);
-        doc.text("Has pagado la el agua que te brinda Squirtle,",25,50) 
-        doc.text("mediante el NPE "+ NPE.value+ " por un costo de $"+ monto_agua.value,25,60);
-        doc.text(tiempo(),25,90);
-        doc.save("PokePago-Agua.pdf");
-        
-        //Limpiando Inputs
-        NPE.value='';
-        monto_agua.value='';
-    }
-}
-
-//Funcion en internet.html
-var telefono = document.getElementById('telefono');
-var monto_telefono = document.getElementById('monto_telefono');
-function pagar_telefonia(){
-    if(telefono.value == ''){
-       swal.fire({
-            title: '¡Poke-Atención!',
-            text: 'No has definido el numero de telefono fijo',
-            icon: 'warning',
-            confirmButtonText: 'Intentar',
-            backdrop: 'true',
-       })
-    }
-    if(monto_telefono.value == ''){
-        swal.fire({
-            title: '¡Poke-Atención!',
-            text: 'No has definido el monto total a pagar',
-            icon: 'warning',
-            confirmButtonText: 'Intentar',
-            backdrop: 'true',
-        })
-    }
-    else{
-        var doc = new jsPDF();
-        doc.addImage(img, 'JPG', 150, 10);
-        doc.text("Hola "+ NombreST,25,25);
-        doc.text("Has pagado el consumo de tu Pokédesk,",25,50) 
-        doc.text("mediante el Numero Telefonico "+ telefono.value+ " por un costo de $"+ monto_telefono.value,25,60);
-        doc.text(tiempo(),25,90);
-        doc.save("PokePago-Telefono.pdf");
-        
-        //Limpiando Inputs 
-        telefono.value='';
-        monto_telefono.value='';
-    }
-}

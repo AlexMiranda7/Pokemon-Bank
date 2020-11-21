@@ -18,7 +18,7 @@
 
 
 </head>
-
+    
 <body ng-controller="pokeController as bank">
     <!--Nav donde ira la información del usuario-->
     <ul class="nav justify-content-center">
@@ -27,6 +27,9 @@
   </li>
   <li class="nav-item">
       <a class="nav-link active" id="cuenta">Poke-Cuenta numero: {{bank.persona.cuenta}}<!--Aqui ira el # de cuenta--></a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link active" id="cuenta"><b>Saldo: {{bank.persona.fondos | currency}}</b><!--Aqui ira el # de cuenta--></a>
   </li>
   <li class="nav-item" >
       <a class="nav-link active" href="#" id="cuenta" onclick="location.href='historial.html'"><i class="fas fa-history"></i> Historial<!--boton para el historial--></a>
@@ -41,7 +44,7 @@
      <div class="container">
       <div class="row content">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Hisotorial</h1>
+          <h1>Historial</h1>
                   
             
          </div>
