@@ -29,13 +29,13 @@
       <a class="nav-link active" id="cuenta">Poke-Cuenta numero: {{bank.persona.cuenta}}<!--Aqui ira el # de cuenta--></a>
   </li>
   <li class="nav-item">
-      <a class="nav-link active" id="cuenta"><b>Saldo: {{bank.persona.fondos | currency}}</b><!--Aqui ira el # de cuenta--></a>
+      <a class="nav-link active" id="saldo"><b>Saldo: {{bank.persona.fondos | currency}}</b><!--Aqui ira el # de cuenta--></a>
   </li>
   <li class="nav-item" >
-      <a class="nav-link active" href="#" id="cuenta" onclick="location.href='historial.html'"><i class="fas fa-history"></i> Historial<!--boton para el historial--></a>
+      <a class="nav-link active" href="#" onclick="location.href='historial.html'"><i class="fas fa-history"></i> Historial<!--boton para el historial--></a>
   </li>
   <li class="nav-item" >
-      <a class="nav-link active" href="#" id="cuenta" onclick="location.href='login.html'"><i class="fas fa-sign-out-alt"></i> Salir<!--boton para el historial--></a>
+      <a class="nav-link active" href="#" onclick="location.href='login.html'"><i class="fas fa-sign-out-alt"></i> Salir<!--boton para el historial--></a>
   </li>
     </ul> <!--Fin de Nav Bar-->
     
@@ -64,7 +64,7 @@
                 </div>
                 
             </form>
-            <a href="#" class=""><button type="submit" class="btn btn-dark" id="btnopc" ng-click="bank.pagar_telefonia()"><i class="fas fa-dollar-sign"></i> Poke-Pagar</button></a>
+            <a href="#" class=""><button type="submit" class="btn btn-dark" id="btnopc" onclick="pago_telefonia()"><i class="fas fa-dollar-sign"></i> Poke-Pagar</button></a>
             
          </div>
          

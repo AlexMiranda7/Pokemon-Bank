@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="pokeBank">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokemon Bank</title>
-  <link rel="stylesheet" href="">
-  <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
-  <link rel="stylesheet" href="Assets/CSS/style.css">
-  
-  
-  <!--FontAwesome-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <!--Angular JS-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Bank</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="Assets/CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="Assets/CSS/style.css">
 
-<script src=https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js></script>
 
-    
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script type="text/javascript" src="Assets/JS/jspdf.min.js"></script>
+
+
+    <!--Angular JS-
+
+<script src=https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js></script>-->
+
+
 
 
 </head>
@@ -25,57 +28,67 @@
 <body ng-controller="pokeController as bank">
     <!--Nav donde ira la información del usuario-->
     <ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link active" id="afiliado">Bienvenido {{bank.persona.name}}<!--Aqui ira el mensaje de bienvenida--></a>
-  </li>
-  <li class="nav-item">
-      <a class="nav-link active" id="cuenta">Poke-Cuenta numero: {{bank.persona.cuenta}}<!--Aqui ira el # de cuenta--></a>
-  </li>
-  <li class="nav-item">
-      <a class="nav-link active" id="cuenta"><b>Saldo: {{bank.persona.fondos | currency}}</b><!--Aqui ira el # de cuenta--></a>
-  </li>
-  <li class="nav-item" >
-      <a class="nav-link active" href="#" id="cuenta" onclick="location.href='historial.html'"><i class="fas fa-history"></i> Historial<!--boton para el historial--></a>
-  </li>
-  <li class="nav-item" >
-      <a class="nav-link active" href="#" id="cuenta" onclick="location.href='login.html'"><i class="fas fa-sign-out-alt"></i> Salir<!--boton para el historial--></a>
-  </li>
-    </ul> <!--Fin de Nav Bar-->
-    
-    
- <section id="formularios">
-     <div class="container">
-      <div class="row content">
-        <div id="depo" class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Deposito</h1>
-            <form name="formulario">
-                
-                <div class="form-goup">
-                    <p>Cantidad a depositar</p>
-                    <input type="number" class="form-control" id="cant_depo" placeholder="$" required>
-                    <span class="errordescrip" id="errordescrip"></span>
+        <li class="nav-item">
+            <a class="nav-link active" id="afiliado">Bienvenido {{bank.persona.name}}
+                <!--Aqui ira el mensaje de bienvenida-->
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" id="cuenta">Poke-Cuenta numero: {{bank.persona.cuenta}}
+                <!--Aqui ira el # de cuenta-->
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" id="saldo"><b>Saldo: {{bank.persona.fondos | currency}}</b>
+                <!--Aqui ira el # de cuenta-->
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#" id="cuenta" onclick="location.href='historial.html'"><i class="fas fa-history"></i> Historial
+                <!--boton para el historial-->
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#" id="cuenta" onclick="location.href='login.html'"><i class="fas fa-sign-out-alt"></i> Salir
+                <!--boton para el historial-->
+            </a>
+        </li>
+    </ul>
+    <!--Fin de Nav Bar-->
+
+
+    <section id="formularios">
+        <div class="container">
+            <div class="row content">
+                <div id="depo" class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                    <h1>Deposito</h1>
+                    <form name="formulario">
+
+                        <div class="form-goup">
+                            <p>Cantidad a depositar</p>
+                            <input type="number" class="form-control" id="cant_depo" placeholder="$" required>
+                            <span class="errordescrip" id="errordescrip"></span>
+                        </div>
+                    </form>
+                    <a href="#" class=""><button type="submit" value="depositar" class="btn btn-dark" id="btnopc" onclick="depositar()"><i class="fas fa-dollar-sign"></i> Poke-Depositar</button></a>
+
                 </div>
-            </form>
-            <a href="#" class=""><button type="submit" value="depositar" class="btn btn-dark" id="btnopc" ng-click="bank.depositar()"><i class="fas fa-dollar-sign"></i> Poke-Depositar</button></a>
-            
-         </div>
-         
+
+            </div>
+
+
+
         </div>
-        
 
-      
-      </div>
+    </section>
 
-</section>
-    
     <!--Boton atras-->
-   <a href="index.html"><button type="button" value="atras" name="atras" class="btn btn-dark" id="btnatras" ><i class="fas fa-arrow-circle-left"></i> Atras</button></a>
-  
-  <script src="Assets/JS/poke-script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script><!--Sweet Alert 2-->
-  <script type="text/javascript" src="Assets/JS/jspdf.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- 
-   
-</body>
-</html>
+    <a href="index.html"><button type="button" value="atras" name="atras" class="btn btn-dark" id="btnatras"><i class="fas fa-arrow-circle-left"></i> Atras</button></a>
+
+    <script src="Assets/JS/poke-script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!--Sweet Alert 2-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+</body></html>
