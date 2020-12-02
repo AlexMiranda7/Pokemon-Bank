@@ -74,10 +74,18 @@ function trans_individual(monto, descripcion, tipo) {
 }
 //FUNCION DEPOSITAR
 function depositar() {
-    if (cant_depo.value == '') {
+    if (cant_depo.value == "") {
         swal.fire({
             title: '¡Poke-Atención!',
             text: 'Nos has definido la cantidad a depositar',
+            icon: 'warning',
+            confirmButtonText: 'Intentar',
+            backdrop: 'true',
+        })
+    } else if (cant_depo.value < 5 || cant_depo.value > 1000) {
+        swal.fire({
+            title: '¡Poke-Atención!',
+            text: 'No puedes depositar la cantidad definida',
             icon: 'warning',
             confirmButtonText: 'Intentar',
             backdrop: 'true',
@@ -91,6 +99,13 @@ function depositar() {
         doc.save("PokeDeposito.pdf");
 
         trans_individual(cant_depo.value, "Deposito", "ingreso");
+
+        //Mensaje de completado
+        Swal.fire(
+            '¡Poke-Completo!',
+            'Deposito de $' + cant_depo.value + ' completado',
+            'success'
+        )
     }
 }
 
@@ -104,6 +119,14 @@ function retirar() {
             confirmButtonText: 'Intentar',
             backdrop: 'true',
         })
+    } else if (cant_retiro.value > localStorage.Fondos) {
+        swal.fire({
+            title: '¡Poke-Atención!',
+            text: 'No puedes retirar mas de lo que tienes',
+            icon: 'warning',
+            confirmButtonText: 'Intentar',
+            backdrop: 'true',
+        })
     } else {
         var doc = new jsPDF();
         //doc.addImage(img, 'JPG', 150, 10);
@@ -113,12 +136,19 @@ function retirar() {
         doc.save("PokeRetiro.pdf");
 
         trans_individual(cant_retiro.value, "Retiro de Efectivo", "egreso");
+
+        //Mensaje de completado
+        Swal.fire(
+            '¡Poke-Completo!',
+            'Retiro de $' + cant_retiro.value + ' completado',
+            'success'
+        )
     }
 }
 
 //FUNCION PAGO_ENERGIA
 function pago_energia() {
-    if (NIC.value == '') {
+    if (NIC.value == "") {
         swal.fire({
             title: '¡Poke-Atención!',
             text: 'No has definido el Numero de Identificación de Contrato NIC',
@@ -126,11 +156,18 @@ function pago_energia() {
             confirmButtonText: 'Intentar',
             backdrop: 'true',
         })
-    }
-    if (monto_energia.value == '') {
+    } else if (monto_energia.value == "") {
         swal.fire({
             title: '¡Poke-Atención!',
             text: 'No has definido el monto total a pagar',
+            icon: 'warning',
+            confirmButtonText: 'Intentar',
+            backdrop: 'true',
+        })
+    } else if (monto_energia.value > localStorage.Fondos) {
+        swal.fire({
+            title: '¡Poke-Atención!',
+            text: 'No cuentas con los fondos suficientes para pagar la energía de Pickachu',
             icon: 'warning',
             confirmButtonText: 'Intentar',
             backdrop: 'true',
@@ -147,6 +184,13 @@ function pago_energia() {
         //Disminuyendo fondos
         trans_individual(monto_energia.value, "Pago de Energia", "egreso")
 
+        //Mensaje de completado
+        Swal.fire(
+            '¡Poke-Completo!',
+            'Pago de $' + monto_energia.value + ' a Pickachu completado',
+            'success'
+        )
+
         //Limpieza de imputs
         NIC.value = '';
         monto_energia.value = '';
@@ -156,7 +200,7 @@ function pago_energia() {
 
 //FUNCION PAGO_AGUA
 function pago_agua() {
-    if (NPE.value == '') {
+    if (NPE.value == "") {
         swal.fire({
             title: '¡Poke-Atención!',
             text: 'No has definido el NPE de la factura',
@@ -164,11 +208,18 @@ function pago_agua() {
             confirmButtonText: 'Intentar',
             backdrop: 'true',
         })
-    }
-    if (monto_agua.value == '') {
+    } else if (monto_agua.value == "") {
         swal.fire({
             title: '¡Poke-Atención!',
             text: 'No has definido el monto total a pagar',
+            icon: 'warning',
+            confirmButtonText: 'Intentar',
+            backdrop: 'true',
+        })
+    } else if (monto_agua.value > localStorage.Fondos) {
+        swal.fire({
+            title: '¡Poke-Atención!',
+            text: 'No cuentas con los fondos suficientes para pagar el agua de Squirtle',
             icon: 'warning',
             confirmButtonText: 'Intentar',
             backdrop: 'true',
@@ -184,6 +235,13 @@ function pago_agua() {
 
         //Disminuyendo fondos
         trans_individual(monto_agua.value, "Pago de Agua", "egreso")
+
+        //Mensaje de completado
+        Swal.fire(
+            '¡Poke-Completo!',
+            'Pago de $' + monto_agua.value + ' a Squirtle completado',
+            'success'
+        )
         //Limpieza de imputs
         NPE.value = '';
         monto_agua.value = '';
@@ -193,7 +251,7 @@ function pago_agua() {
 }
 
 function pago_telefonia() {
-    if (telefono.value == '') {
+    if (telefono.value == "") {
         swal.fire({
             title: '¡Poke-Atención!',
             text: 'No has definido el numero de telefono fijo',
@@ -201,11 +259,18 @@ function pago_telefonia() {
             confirmButtonText: 'Intentar',
             backdrop: 'true',
         })
-    }
-    if (monto_telefono.value == '') {
+    } else if (monto_telefono.value == "") {
         swal.fire({
             title: '¡Poke-Atención!',
             text: 'No has definido el monto total a pagar',
+            icon: 'warning',
+            confirmButtonText: 'Intentar',
+            backdrop: 'true',
+        })
+    } else if (monto_telefono.value > localStorage.Fondos) {
+        swal.fire({
+            title: '¡Poke-Atención!',
+            text: 'No cuentas con los fondos suficientes para pagar tu Pokédesk',
             icon: 'warning',
             confirmButtonText: 'Intentar',
             backdrop: 'true',
@@ -221,6 +286,13 @@ function pago_telefonia() {
 
         //Disminuyendo fondos
         trans_individual(monto_telefono.value, "Pago de Internet y Telefonia", "egreso")
+
+        //Mensaje de completado
+        Swal.fire(
+            '¡Poke-Completo!',
+            'Pago de $' + monto_telefono.value + ' de Pokédesk completado',
+            'success'
+        )
 
         //Limpiando Inputs 
         telefono.value = '';

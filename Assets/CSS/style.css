@@ -112,5 +112,10 @@ button.swal2-confirm.swal2-styled{
     background-color: black;
 }
 
+button.btn.btn-secondary{
+    height: 60px;
+    width: 175px;
+    
+}
 
 
